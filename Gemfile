@@ -4,7 +4,6 @@ gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem 'jquery-rails'
 
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -15,6 +14,6 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'faker'
 end
