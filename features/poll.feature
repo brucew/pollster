@@ -2,12 +2,6 @@ Feature: Polls
   In order to get feedback on questions
   Visitors should be able to manage polls and vote on polls
 
-  Scenario: List polls
-    Given I am a visitor
-    And there are 10 polls
-    When I go to the poll list page
-    Then I should see a list of 10 polls
-
   Scenario: Create poll
     Given I am a visitor
     When I go to the poll list page
