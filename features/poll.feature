@@ -4,28 +4,18 @@ Feature: Polls
 
   Scenario: Create poll
     Given I am a visitor
-    When I go to the poll list page
-    Then there should be a new poll button
-    When I click the new poll button
-    And I complete and submit the new poll form
-    Then that poll should be created
-    And it should have a question
-    And it should have 2-5 items
+    When I visit the poll list page
+    Then I should be able to create a new poll
 
   Scenario: Update poll
     Given I am a visitor
-    When I go to the poll list page
-    Then there should be an edit poll button for each poll
-    When I click an edit poll button for a poll
-    And I complete and submit the edit poll form
-    Then that poll should be updated with the new information
+    When I visit the poll list page
+    Then I should be able to edit a poll
 
   Scenario: Delete poll
     Given I am a visitor
-    When I go to the poll list page
-    Then there should be a delete poll button for each poll
-    When I click a delete poll button for a poll
-    Then that poll should be deleted
+    When I visit the poll list page
+    Then I should be able to delete a poll
 
   Scenario: Vote on a poll
     Given I am a visitor

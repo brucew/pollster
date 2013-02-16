@@ -9,4 +9,9 @@ describe Poll do
     Poll.create!(@attrs)
   end
 
+  it "should require a question" do
+    poll = FactoryGirl.build(:poll, question: nil)
+    poll.should_not be_valid
+  end
+
 end

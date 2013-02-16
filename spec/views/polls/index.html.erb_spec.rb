@@ -7,7 +7,7 @@ describe "polls/index" do
 
   it "renders a list of polls" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "p", :text => /^##Question##  /, :count => 2
+    assert_select 'p', :text => /^##Question##  /, :count => 2
+    assert_select "a[href=#{new_poll_path}]"
   end
 end
