@@ -1,4 +1,4 @@
-Given /^I am on the poll list page$/ do
+Given /^I visit the poll list page$/ do
   visit '/polls'
 end
 
@@ -24,14 +24,23 @@ When /^I edit that poll$/ do
   click_on 'poll_submit_button'
 end
 
+When /^I delete that poll$/ do
+  click_on "delete_poll_#{@poll.id}_button"
+end
+
 Then /^that poll should exist$/ do
   poll = Poll.where(question: @new_poll.question).first
   poll.should_not be_nil
 end
 
 Then /^that poll should be updated with my changes$/ do
-  updated_poll = Poll.where(question: @edited_poll.question).first
-  updated_poll.should_not be_nil
-  updated_poll.question.should_not eq @poll.question
-  updated_poll.question.should eq @edited_poll.question
+  poll = Poll.find(@poll.id)
+  poll.should_not be_nil
+  poll.question.should_not eq @poll.question
+  poll.question.should eq @edited_poll.question
+end
+
+Then /^that poll should not exist$/ do
+  polls = Poll.where(id: @poll.id)
+  polls.should be_empty
 end

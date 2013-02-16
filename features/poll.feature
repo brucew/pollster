@@ -3,20 +3,21 @@ Feature: Polls
   Visitors should be able to manage polls and vote on polls
 
   Scenario: Create poll
-    Given I am on the poll list page
-    When I create a new poll
+    When I visit the poll list page
+    And I create a new poll
     Then that poll should exist
 
-  @javascript
   Scenario: Update poll
     Given there is an existing poll
-    And I am on the poll list page
-    When I edit that poll
+    When I visit the poll list page
+    And I edit that poll
     Then that poll should be updated with my changes
 
   Scenario: Delete poll
+    Given there is an existing poll
     When I visit the poll list page
-    Then I should be able to delete a poll
+    And I delete that poll
+    Then that poll should not exist
 
   Scenario: Vote on a poll
     Given I am a visitor
