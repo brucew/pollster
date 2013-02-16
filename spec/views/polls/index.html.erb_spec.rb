@@ -2,12 +2,22 @@ require 'spec_helper'
 
 describe "polls/index" do
   before(:each) do
-    assign(:polls, [FactoryGirl.build(:poll), FactoryGirl.build(:poll)])
+    @polls = [
+        FactoryGirl.build(:poll, id: 1),
+        FactoryGirl.build(:poll, id: 2)
+    ]
   end
 
-  it "renders a list of polls" do
+  it "renders a list of polls with edit buttons" do
     render
-    assert_select 'p', :text => /^##Question##  /, :count => 2
+    assert_select 'div.poll', :text => /^##Question##  /, :count => @polls.count
+    @polls.each do |poll|
+      assert_select "a[href=#{edit_poll_path(poll)}]"
+    end
+  end
+
+  it "renders a new poll button" do
+    render
     assert_select "a[href=#{new_poll_path}]"
   end
 end
