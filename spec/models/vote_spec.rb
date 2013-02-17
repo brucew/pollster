@@ -10,4 +10,9 @@ describe Vote do
     vote.should_not be_valid
   end
 
+  it "should require an item" do
+    vote = FactoryGirl.build(:vote, item: nil)
+    vote.should_not be_valid
+  end
+
 end

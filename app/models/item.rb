@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :poll, inverse_of: :items
-  has_many :votes, inverse_of: :item
+  has_many :votes, dependent: :destroy, inverse_of: :item
 
   attr_accessible :answer
 
