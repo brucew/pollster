@@ -1,6 +1,7 @@
 class VotesController < ApplicationController
   def create
-    @vote = Vote.new(params[:vote])
+    @item = Item.find(params[:item_id])
+    @vote = @item.votes.build(params[:vote])
     @vote.ip_address = request.remote_ip
 
     respond_to do |format|

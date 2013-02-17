@@ -5,6 +5,6 @@
           <%= item.votes.count %>
         </div>
     <% else %>
-        <%= button_to 'Vote', votes_path(vote: {item_id: item.id}), id: "create_item_#{item.id}_vote_button" %>
+        <%= button_to 'Vote', item_votes_path(item), id: "create_item_#{item.id}_vote_button" %>
     <% end %>
 <% end %>
