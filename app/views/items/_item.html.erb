@@ -1,4 +1,4 @@
-<p>
+<%= div_for item do %>
   <%= item.answer %>
-  <%= button_to 'Vote', votes_path %>
-</p>
+  <%= button_to 'Vote', votes_path(vote: {item_id: item.id}), id: "create_item_#{item.id}_vote_button" %>
+<% end %>

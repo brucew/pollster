@@ -5,6 +5,7 @@ describe VotesController do
   def valid_attributes
     poll = FactoryGirl.create(:poll)
     attrs = FactoryGirl.attributes_for(:vote)
+    attrs.delete(:ip_address)
     attrs[:item_id] = poll.items.first.id
     attrs
   end

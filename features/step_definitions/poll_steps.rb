@@ -42,7 +42,9 @@ When /^I view that poll$/ do
 end
 
 When /^I vote for an item$/ do
-  pending # express the regexp above with the code you wish you had
+  @item = @poll.items.first
+  @item_votes_count = @item.votes.count
+  click_on "create_item_#{@item.id}_vote_button"
 end
 
 Then /^that poll should exist$/ do
@@ -66,6 +68,6 @@ Then /^the voting results should not be shown$/ do
   page.should have_no_selector '#voting_results'
 end
 
-Then /^the votes for that item should increment by (\d+)$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^the votes for that item should increment by (\d+)$/ do |increment|
+  @item.votes.count.should eq @item_votes_count + increment.to_i
 end
