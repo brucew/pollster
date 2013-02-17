@@ -36,6 +36,5 @@ ActiveRecord::Schema.define(:version => 20130217170437) do
   end
 
   add_index "votes", ["item_id", "ip_address"], :name => "index_votes_on_item_id_and_ip_address"
-  add_index "votes", ["item_id"], :name => "index_votes_on_item_id"
 
 end

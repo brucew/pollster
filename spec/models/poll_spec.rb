@@ -1,13 +1,8 @@
 require 'spec_helper'
 
 describe Poll do
-  before(:each) do
-    @attrs = FactoryGirl.attributes_for(:poll)
-    @attrs[:items_attributes] = { '0' => FactoryGirl.attributes_for(:item), '1' => FactoryGirl.attributes_for(:item) }
-  end
-
   it "should create a new instance given valid attributes" do
-    Poll.create!(@attrs)
+    FactoryGirl.create(:poll)
   end
 
   it "should require a question" do

@@ -1,12 +1,8 @@
 require 'spec_helper'
 
 describe Item do
-  before(:each) do
-    @attrs = FactoryGirl.attributes_for(:item)
-  end
-
   it "should create a new instance given valid attributes" do
-    Item.create!(@attrs)
+    FactoryGirl.create(:item)
   end
 
   it "should require an answer" do
