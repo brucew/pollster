@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :poll
 
-  attr_accessible :poll, :answer
+  attr_accessible :answer
 
   validates :answer, presence: true
 end
