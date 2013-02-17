@@ -1,9 +1,11 @@
-<%= div_for poll, class: 'row' do %>
-    <%= link_to poll_path(poll) do %>
-        <p>
+<%= content_tag_for :tr, poll do %>
+    <td>
+      <%= link_to poll_path(poll) do %>
           <%= poll.question %>
-        </p>
-    <% end %>
-    <%= link_to 'Edit', edit_poll_path(poll), id: "edit_poll_#{poll.id}_button", class: 'btn' %>
-    <%= link_to 'Delete', poll_path(poll), id: "delete_poll_#{poll.id}_button", method: :delete, class: 'btn' %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to 'Edit', edit_poll_path(poll), id: "edit_poll_#{poll.id}_button", class: 'btn' %>
+      <%= link_to 'Delete', poll_path(poll), id: "delete_poll_#{poll.id}_button", method: :delete, class: 'btn' %>
+    </td>
 <% end %>

@@ -7,7 +7,7 @@ describe "polls/index" do
 
   it "renders a list of polls with edit and delete buttons" do
     render
-    assert_select 'div.poll', :text => /^##Question##  /, :count => @polls.count
+    assert_select 'tr.poll', :text => /^##Question##  /, :count => @polls.count
     @polls.each do |poll|
       assert_select "a[href='#{edit_poll_path(poll)}']"
       assert_select "a[href='#{poll_path(poll)}'][data-method='delete']"
