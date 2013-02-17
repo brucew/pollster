@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem 'jquery-rails'
+gem 'nested_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -11,6 +12,7 @@ group :assets do
 end
 
 group :test, :development do
+  gem 'thin'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'

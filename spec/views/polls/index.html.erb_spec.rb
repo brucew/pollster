@@ -2,10 +2,7 @@ require 'spec_helper'
 
 describe "polls/index" do
   before(:each) do
-    @polls = [
-        FactoryGirl.build(:poll, id: 1),
-        FactoryGirl.build(:poll, id: 2)
-    ]
+    @polls = FactoryGirl.build_list(:poll, 2, id: 1)
   end
 
   it "renders a list of polls with edit and delete buttons" do
