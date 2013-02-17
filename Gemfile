@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem 'jquery-rails'
-gem 'nested_form'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'nested_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
