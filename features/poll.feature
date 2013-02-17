@@ -33,5 +33,5 @@ Feature: Polls
     And my IP address matches a vote on that poll
     When I view that poll
     Then the voting results should be shown
-    And there should not be any voting buttons for the items
+    And I should not be able to vote on that poll
 

@@ -10,6 +10,10 @@ Given /^my IP address does not match any votes on that poll$/ do
   # @poll is new, no votes, nothing to do
 end
 
+Given /^my IP address matches a vote on that poll$/ do
+  FactoryGirl.create(:vote, item: @poll.items.first, ip_address: '127.0.0.1')
+end
+
 When /^I create a new poll$/ do
   click_on 'new_poll_button'
 
@@ -65,9 +69,17 @@ Then /^that poll should not exist$/ do
 end
 
 Then /^the voting results should not be shown$/ do
-  page.should have_no_selector '#voting_results'
+  page.should have_no_selector '.voting_results'
 end
 
 Then /^the votes for that item should increment by (\d+)$/ do |increment|
   @item.votes.count.should eq @item_votes_count + increment.to_i
+end
+
+Then /^the voting results should be shown$/ do
+  page.should have_selector '.voting_results'
+end
+
+Then /^I should not be able to vote on that poll$/ do
+  page.should have_no_selector '[id$="_vote_button"]'
 end

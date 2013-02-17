@@ -30,4 +30,11 @@ describe Poll do
     poll.should_not be_valid
   end
 
+  it "should return whether a vote has been cast from a given IP address" do
+    poll = FactoryGirl.create(:poll)
+    poll.voted_on_from?('0.0.0.0').should be_false
+    FactoryGirl.create(:vote, ip_address: '0.0.0.0', item: poll.items.first)
+    poll.voted_on_from?('0.0.0.0').should be_true
+  end
+
 end

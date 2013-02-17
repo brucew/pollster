@@ -1,6 +1,4 @@
 class PollsController < ApplicationController
-  # GET /polls
-  # GET /polls.json
   def index
     @polls = Poll.all
 
@@ -10,8 +8,6 @@ class PollsController < ApplicationController
     end
   end
 
-  # GET /polls/1
-  # GET /polls/1.json
   def show
     @poll = Poll.find(params[:id])
 
@@ -21,8 +17,6 @@ class PollsController < ApplicationController
     end
   end
 
-  # GET /polls/new
-  # GET /polls/new.json
   def new
     @poll = Poll.new
 
@@ -32,13 +26,10 @@ class PollsController < ApplicationController
     end
   end
 
-  # GET /polls/1/edit
   def edit
     @poll = Poll.find(params[:id])
   end
 
-  # POST /polls
-  # POST /polls.json
   def create
     @poll = Poll.new(params[:poll])
 
@@ -53,8 +44,6 @@ class PollsController < ApplicationController
     end
   end
 
-  # PUT /polls/1
-  # PUT /polls/1.json
   def update
     @poll = Poll.find(params[:id])
 
@@ -69,8 +58,6 @@ class PollsController < ApplicationController
     end
   end
 
-  # DELETE /polls/1
-  # DELETE /polls/1.json
   def destroy
     @poll = Poll.find(params[:id])
     @poll.destroy

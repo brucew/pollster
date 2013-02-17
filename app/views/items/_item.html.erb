@@ -1,4 +1,10 @@
 <%= div_for item do %>
-  <%= item.answer %>
-  <%= button_to 'Vote', votes_path(vote: {item_id: item.id}), id: "create_item_#{item.id}_vote_button" %>
+    <%= item.answer %>
+    <% if @poll.voted_on_from?(request.remote_ip) %>
+        <div class="voting_results">
+          <%= item.votes.count %>
+        </div>
+    <% else %>
+        <%= button_to 'Vote', votes_path(vote: {item_id: item.id}), id: "create_item_#{item.id}_vote_button" %>
+    <% end %>
 <% end %>

@@ -5,7 +5,7 @@ describe "polls/show" do
     @poll = assign(:poll, FactoryGirl.create(:poll))
   end
 
-  it "renders attributes in <p>" do
+  it "renders attributes" do
     render
     rendered.should match(/#{@poll.question}/)
   end

@@ -1,6 +1,4 @@
 class VotesController < ApplicationController
-  # POST /votes
-  # POST /votes.json
   def create
     @vote = Vote.new(params[:vote])
     @vote.ip_address = request.remote_ip

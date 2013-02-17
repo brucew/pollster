@@ -7,4 +7,8 @@ class Poll < ActiveRecord::Base
 
   validates :question, presence: true
   validates :items, length: { in: 2..5 }
+
+  def voted_on_from?(ip_address)
+    not Vote.where(ip_address: ip_address, item_id: self.items).empty?
+  end
 end
