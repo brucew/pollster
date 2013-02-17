@@ -1,11 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Question:</b>
+<p class="lead">
   <%= @poll.question %>
 </p>
 
-<%= render @poll.items %>
+<dl class="dl-horizontal">
+  <%= render @poll.items %>
+</dl>
 
-<%= link_to 'Edit', edit_poll_path(@poll) %> |
-<%= link_to 'Back', polls_path %>
+<%= link_to 'Edit', edit_poll_path(@poll), class: 'btn' %>
+<%= link_to 'Back', polls_path, class: 'btn' %>

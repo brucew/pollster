@@ -1,10 +1,14 @@
-<%= div_for item do %>
-    <%= item.answer %>
-    <% if @poll.voted_on_from?(request.remote_ip) %>
-        <div class="voting_results">
+<%= div_for item, class: 'well' do %>
+    <dt>
+      <% if @poll.voted_on_from?(request.remote_ip) %>
+        <span class="badge badge-success pull-left voting_results">
           <%= item.votes.count %>
-        </div>
-    <% else %>
-        <%= button_to 'Vote', item_votes_path(item), id: "create_item_#{item.id}_vote_button" %>
-    <% end %>
+        </span>
+      <% else %>
+          <%= button_to 'Vote', item_votes_path(item), id: "create_item_#{item.id}_vote_button", class: 'btn pull-left' %>
+      <% end %>
+    </dt>
+    <dd>
+      <%= item.answer %>
+    </dd>
 <% end %>
