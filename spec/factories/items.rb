@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :item do
-    association :poll, strategy: :build
+    association :poll
     answer { '##Answer##  ' + Faker::Lorem.sentence }
   end
 end
