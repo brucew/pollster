@@ -8,9 +8,12 @@ class Poll < ActiveRecord::Base
   validates :question, presence: true
   validate :number_of_items
 
+  MIN_ITEMS = 2
+  MAX_ITEMS = 5
+
   def number_of_items
-    errors.add(:base, 'Must have at least 2 items') if items.size < 2
-    errors.add(:base, 'Cannot have more than 5 items') if items.size > 5
+    errors.add(:base, "Must have at least #{MIN_ITEMS} items") if items.size < MIN_ITEMS
+    errors.add(:base, "Cannot have more than #{MAX_ITEMS} items") if items.size > MAX_ITEMS
   end
 
   def voted_on_from?(ip_address)

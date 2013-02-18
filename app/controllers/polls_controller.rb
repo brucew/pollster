@@ -19,6 +19,7 @@ class PollsController < ApplicationController
 
   def new
     @poll = Poll.new
+    Poll::MIN_ITEMS.times { @poll.items.build }
 
     respond_to do |format|
       format.html # new.html.erb
