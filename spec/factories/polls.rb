@@ -3,7 +3,7 @@ require 'faker'
 FactoryGirl.define do
   factory :poll do
     ignore do
-      items_count 2
+      items_count Poll::MIN_ITEMS
     end
 
     question { '##Question##  ' + Faker::Lorem.paragraph }

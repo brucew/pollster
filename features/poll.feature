@@ -2,7 +2,6 @@ Feature: Polls
   In order to get feedback on questions
   Visitors should be able to manage polls and vote on polls
 
-  @javascript
   Scenario: Create poll
     When I visit the poll list page
     And I create a new poll

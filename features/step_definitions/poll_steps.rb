@@ -20,9 +20,8 @@ When /^I create a new poll$/ do
   @new_poll = FactoryGirl.build(:poll)
   fill_in 'poll_question', with: @new_poll.question
 
-  @new_poll.items.each do |item|
-    click_on 'new_poll_item_button'
-    all('input[name$="[answer]"]').last.set(item.answer)
+  @new_poll.items.each_index do |i|
+    all('input[name$="[answer]"]')[i].set(@new_poll.items[i].answer)
   end
 
   click_on 'poll_submit_button'
