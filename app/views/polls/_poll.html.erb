@@ -5,7 +5,11 @@
       <% end %>
     </td>
     <td>
-      <%= link_to 'Edit', edit_poll_path(poll), id: "edit_poll_#{poll.id}_button", class: 'btn' %>
-      <%= link_to 'Delete', poll_path(poll), id: "delete_poll_#{poll.id}_button", method: :delete, class: 'btn' %>
+      <%= link_to edit_poll_path(poll), id: "edit_poll_#{poll.id}_button", class: 'btn' do %>
+          <i class="icon-pencil"></i>
+      <% end %>
+      <%= link_to poll_path(poll), id: "delete_poll_#{poll.id}_button", method: :delete, class: 'btn' do %>
+          <i class="icon-remove"></i>
+      <% end %>
     </td>
 <% end %>

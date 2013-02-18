@@ -5,7 +5,8 @@
           <%= item.votes.count %>
         </span>
       <% else %>
-          <%= button_to 'Vote', item_votes_path(item), id: "create_item_#{item.id}_vote_button", class: 'btn pull-left' %>
+          <%= button_to 'Vote', item_votes_path(item),
+                        id: "create_item_#{item.id}_vote_button", class: 'btn btn-success pull-left' %>
       <% end %>
     </dt>
     <dd>

@@ -2,4 +2,6 @@
 <table class="table table-bordered table-hover">
   <%= render @polls %>
 </table>
-<%= link_to 'New Poll', new_poll_path, id: 'new_poll_button', class: 'btn btn-primary' %>
+<%= link_to new_poll_path, id: 'new_poll_button', class: 'btn btn-primary' do %>
+    <i class="icon-plus icon-white"></i> Poll
+<% end %>
