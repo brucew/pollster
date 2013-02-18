@@ -1,6 +1,6 @@
 class Poll < ActiveRecord::Base
   has_many :items, dependent: :destroy, inverse_of: :poll
-  has_many :votes, through: :items
+  has_many :votes, inverse_of: :poll
 
   accepts_nested_attributes_for :items, allow_destroy: true
   attr_accessible :question, :items_attributes

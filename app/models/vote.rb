@@ -1,14 +1,12 @@
 class Vote < ActiveRecord::Base
   belongs_to :item, inverse_of: :votes
-  has_one :poll, through: :item
-
-  attr_accessible :item_id
+  belongs_to :poll, inverse_of: :votes
 
   validates :item, presence: true
-  validates :ip_address, presence: true
-  validate :unique_ip_address_per_poll
+  validates :ip_address, presence: true, uniqueness: { scope: :poll_id }
 
-  def unique_ip_address_per_poll
-      errors.add(:ip_address, 'has already voted on this poll') if item and item.poll.voted_on_from?(ip_address)
+  def item=(item)
+    self.poll = item.poll unless item.nil?
+    super item
   end
 end

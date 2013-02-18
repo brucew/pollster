@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130217170437) do
+ActiveRecord::Schema.define(:version => 20130218205934) do
 
   create_table "items", :force => true do |t|
     t.integer  "poll_id"
@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(:version => 20130217170437) do
     t.string   "ip_address"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "poll_id"
   end
 
   add_index "votes", ["item_id", "ip_address"], :name => "index_votes_on_item_id_and_ip_address"
+  add_index "votes", ["poll_id", "ip_address"], :name => "index_votes_on_poll_id_and_ip_address", :unique => true
 
 end
