@@ -15,10 +15,10 @@ describe Vote do
     vote.should_not be_valid
   end
 
-  it 'should be unique for the IP address per poll' do
+  it 'should have a unique IP address per poll' do
     poll = FactoryGirl.create(:poll)
     FactoryGirl.create(:vote, item: poll.items.first, ip_address: '0.0.0.0')
-    vote = FactoryGirl.build(:vote, item: poll.items.first, ip_address: '0.0.0.0')
+    vote = FactoryGirl.build(:vote, item: poll.items.second, ip_address: '0.0.0.0')
     vote.should_not be_valid
   end
 
