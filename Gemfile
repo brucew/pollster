@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'nested_form'
+gem 'ember-rails' #TODO: Remove unneeded UI gems
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
